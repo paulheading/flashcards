@@ -1,28 +1,39 @@
 
-// ella usaba el portátil = she was using the laptop
-// por qué estaba tu camiseta mojada = why was your t shirt wet
-// Ella está dando = She is giving
-
-// Tú trabajas = you work (informal)
-
-// La potestad = authority
-// Cotidiano = daily
-// El aventón = ride
-// Convivir = to live together
-// El séquito = Entourage
-// Encaramarse = to climb up onto
-// La sortija = ring
-
-
 const words = [
+  { spanish: [`el ruido`], english: [`the noise`] },
+  { spanish: [`caminar`], english: [`to walk`] },
+  { spanish: [`tienes mascotas`], english: [`you have pets`] },
+  { spanish: [`cojo`], english: [`I take`, `lame`] },
+  { spanish: [`coger`], english: [`to take`] },
+  { spanish: [`la lluvia`], english: [`the rain`] },
+  { spanish: [`nosotros vinimos ayer`], english: [`we came yesterday`] },
+  { spanish: [`dibujar`], english: [`to draw`] },
+  { spanish: [`dibujaste`], english: [`you drew`] },
+  { spanish: [`pensar`], english: [`to think`] },
+  { spanish: [`me pienso`], english: [`I think`] },
+  { spanish: [`suave`], english: [`smooth`] },
+  { spanish: [`comida salada`], english: [`salty food`] },
+  { spanish: [`un perro rescatado`], english: [`a rescue dog`] },
+  { spanish: [`nadar`], english: [`to swim`] },
+  { spanish: [`estoy visitándolos`], english: [`I am visiting them`] },
+  { spanish: [`hasta pronto`], english: [`see you soon`] },
+  { spanish: [`que tengas un buen viaje`], english: [`have a good trip`] },
+  { spanish: [`dar me un beso`], english: [`give me a kiss`] },
+  { spanish: [`besome`], english: [`kiss me`] },
+  { spanish: [`convivir`], english: [`to live together`] },
+  { spanish: [`el séquito`], english: [`entourage`] },
+  { spanish: [`encaramarse`], english: [`to climb up onto`] },
+  { spanish: [`la sortija`, `el anillo`], english: [`the ring`] },
+  { spanish: [`la garota`], english: [`samba girl`] },
+  { spanish: [`tamboreros`], english: [`drum players`] },
+  { spanish: [`hasta el momento`], english: [`until now`] },
   { spanish: [`ella usaba el portátil`], english: [`she was using the laptop`] },
   { spanish: [`por qué estaba tu camiseta mojada`], english: [`why was your t-shirt wet`] },
   { spanish: [`ella está dando`], english: [`she is giving`] },
   { spanish: [`tú trabajas`], english: [`you work`] },
-  // { spanish: [`medianoche`], english: [`midnight`] },
-  // { spanish: [`medianoche`], english: [`midnight`] },
-  // { spanish: [`medianoche`], english: [`midnight`] },
-
+  { spanish: [`la potestad`], english: [`authority`] },
+  { spanish: [`cotidiano`], english: [`daily`] },
+  { spanish: [`el aventón`], english: [`the ride`] },
   { spanish: [`medianoche`], english: [`midnight`] },
   { spanish: [`tomo el almuerzo`], english: [`I take lunch`] },
   { spanish: [`perezoso`], english: [`lazy`,`sloth`] },
@@ -79,7 +90,6 @@ const words = [
   { spanish: [`alguien`], english: [`someone`, `somebody`, `anyone`] },
   { spanish: [`soy`], english: [`I am`] },
   { spanish: [`eres`], english: [`you are`] },
-  { spanish: [`es`], english: [`he is`, `she is`] },
   { spanish: [`somos`], english: [`we are`] },
   { spanish: [`son`], english: [`they are`] },
   { spanish: [`de que parte de argentina eres`], english: [`which part of argentina are you from`] },
