@@ -29,6 +29,7 @@ import mixins from './mixins'
 import { mapState } from 'vuex'
 import GameOver from './components/GameOver'
 export default {
+  name: 'App',
   mixins: [mixins],
   computed: {
     ...mapState(['finished', 'score', 'accuracy', 'answer', 'current', 'fedback']),
