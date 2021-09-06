@@ -40,9 +40,9 @@ function calcPercentage(a, b) {
 export function showFeedback() {
   let { increment, score, question, answer, accuracy, current } = this.$store.state;
   let { guess } = this.$refs;
-  
+
   this.$store.commit('answerSet', true);
-  guess = this.simplify(guess.value);
+  guess = simplify(guess.value);
 
   const translate = current.language === 'esp' ? current.word.english : current.word.spanish;
   const original = current.language === 'esp' ? current.word.spanish : current.word.english;
@@ -69,6 +69,7 @@ export function showFeedback() {
   if (answer.alternatives.length) {
     this.$store.commit('answerAlternatives', answer.alternatives);
   }
+  this.$store.commit('fedback', true);
 }
 
 export function nextStep() {
@@ -77,6 +78,7 @@ export function nextStep() {
   this.$store.commit('answerSet', false);
   this.$store.commit('answerCorrect', false);
   this.$store.commit('answerAlternatives', []);
+  this.$store.commit('fedback', false);
   this.selectWord();
 }
 

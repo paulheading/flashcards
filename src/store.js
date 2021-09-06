@@ -10,6 +10,7 @@ export default new Vuex.Store({
     score: 0,
     question: 0,
     increment: 10,
+    fedback: false,
     finished: false,
     answer: {
       set: false,
@@ -53,6 +54,9 @@ export default new Vuex.Store({
     },
     finished(state, payload) {
       state.finished = payload
+    },
+    fedback(state, payload) {
+      state.fedback = payload
     },
     score(state, payload) {
       state.score = payload

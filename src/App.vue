@@ -1,23 +1,23 @@
 <template>
   <div id="app">
-    <game-over v-if="$store.state.finished" />
+    <game-over v-if="finished" />
     <template v-else>
-      <div>{{ $store.state.score }}</div>
-      <div v-if="$store.state.accuracy.percent">{{ $store.state.accuracy.percent }}%</div>
+      <div>{{ score }}</div>
+      <div v-if="accuracy.percent">{{ accuracy.percent }}%</div>
       <div>{{ currentWord }}</div>
       <form v-on:submit.prevent>
         <input ref="guess" class="guess" type="text">
-        <div v-if="$store.state.answer.set">
-          <div v-if="$store.state.answer.correct">correct :)</div>
+        <div v-if="answer.set">
+          <div v-if="answer.correct">correct :)</div>
           <div v-else>incorrect :(</div>
         </div>
-        <div v-if="$store.state.answer.alternatives.length">
-          <div v-if="$store.state.answer.correct">alternatives:</div>          
-          <div v-for="(alternative, index) in $store.state.answer.alternatives" :key="`alternative-${index}`">
+        <div v-if="answer.alternatives.length">
+          <div v-if="answer.correct">alternatives:</div>          
+          <div v-for="(alternative, index) in answer.alternatives" :key="`alt-${index}`">
             {{ alternative }}
           </div>
         </div>
-        <button @click="submitResponse()" type="submit">enter</button>
+        <button @click="!fedback ? showFeedback() : nextStep()" type="submit">enter</button>
       </form>
     </template>
   </div>
@@ -26,17 +26,14 @@
 <script>
 import 'bootstrap/dist/css/bootstrap.css'
 import mixins from './mixins'
+import { mapState } from 'vuex'
 import GameOver from './components/GameOver'
 export default {
   mixins: [mixins],
-  data() {
-    return {
-      alreadyFedback: false
-    }
-  },
   computed: {
+    ...mapState(['finished', 'score', 'accuracy', 'answer', 'current', 'fedback']),
     currentWord() {
-      const { language, word } = this.$store.state.current;
+      const { language, word } = this.current;
       switch (language) {
         case 'eng':
           return word.english[0];       
@@ -46,15 +43,6 @@ export default {
     }
   },
   methods: {
-    submitResponse() {
-      if (this.alreadyFedback) {
-        this.alreadyFedback = false;
-        return this.nextStep();
-      } else {
-        this.alreadyFedback = true;
-        return this.showFeedback();
-      }
-    },
     // resetBonus() {
     //   console.log("working?");
     //   this.$store.commit('bonus', this.bonus);
