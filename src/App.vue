@@ -1,15 +1,15 @@
 <template>
-  <div id="app">
+  <div :class="$style.container">
     <game-over v-if="finished" />
     <template v-else>
       <div>{{ score }}</div>
       <div v-if="accuracy.percent">{{ accuracy.percent }}%</div>
       <div>{{ currentWord }}</div>
-      <form v-on:submit.prevent>
-        <input ref="guess" class="guess" type="text">
-        <div v-if="answer.set">
-          <div v-if="answer.correct">correct :)</div>
-          <div v-else>incorrect :(</div>
+      <form :class="$style.form" v-on:submit.prevent>
+        <input ref="guess" :class="$style.guess" type="text">
+        <div v-if="answer.set" :class="$style.answer_wrap">
+          <div v-if="answer.correct" :class="$style.correct">correct :)</div>
+          <div v-else :class="$style.incorrect">incorrect :(</div>
         </div>
         <div v-if="answer.alternatives.length">
           <div v-if="answer.correct">alternatives:</div>          
@@ -17,7 +17,7 @@
             {{ alternative }}
           </div>
         </div>
-        <button @click="!fedback ? showFeedback() : nextStep()" type="submit">enter</button>
+        <button @click="!fedback ? showFeedback() : nextStep()" :class="$style.submit" type="submit">enter</button>
       </form>
     </template>
   </div>
@@ -67,27 +67,4 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  place-content: center;
-  text-align: center;
-  font-size: 2rem;
-  display: grid;
-  height: 100vh;
-  gap: 1rem;
-}
-form {
-  display: grid;
-  gap: 1rem;
-}
-input {
-  border: 1px solid black;
-  border-radius: 0;
-}
-button {
-  border: 1px solid black;
-}
-button:active {
-  transform: scale(0.98);
-}
-</style>
+<style src="./App.scss" lang="scss" module></style>
